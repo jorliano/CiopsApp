@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">CiopsApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_imagens">ImagensActivity</string>
+    <string name="bt_imagem">Ver Imagens</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_cadastro">CadastroActivity</string>
+    <string name="login">Login</string>
+    <string name="Senha">senha</string>
+    <string name="Logar">logar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="nome">Nome</string>
+    <string name="email">Email</string>
+    <string name="telefone">Telefone</string>
+    <string name="sexo">Sexo</string>
+    <string name="btCadastro">Cadastrar</string>
+    <string name="cidade">Cidade</string>
+    <string name="drawer_item_fotos">Fotos</string>
+    <string name="drawer_item_enviar">Enviar</string>
+    <string name="drawer_item_settings">Configurações</string>
+    <string name="drawer_item_notificacao">Notificação</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
