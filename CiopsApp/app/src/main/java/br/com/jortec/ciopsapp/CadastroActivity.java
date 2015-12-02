@@ -70,12 +70,17 @@ public class CadastroActivity extends AppCompatActivity {
                     cliente.setEmail(email.getText().toString());
                     cliente.setTelefone(telefone.getText().toString());
                     cliente.setCidade(cidade.getText().toString());
-                    // cliente.setSexo(spnSexo.getSelectedItem().toString());
                     cliente.setLogin(login.getText().toString());
                     cliente.setSenha(senha.getText().toString());
 
-                   // new HttpAsyncPOST().execute();
-                    startActivity(new Intent(CadastroActivity.this,MainActivity.class));
+                    if(!cliente.getNome().equals("") && !cliente.getLogin().equals("") && !cliente.getSenha().equals("") ){
+                        new HttpAsyncPOST().execute();
+                    }else{
+                        imprimirMensagem("Preencha os campos vazios");
+                    }
+
+
+                    //startActivity(new Intent(CadastroActivity.this,MainActivity.class));
 
                 } else {
                     Toast.makeText(v.getContext(), "Verifique sua conexão com a internet", Toast.LENGTH_LONG).show();
@@ -128,7 +133,7 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     private String post() {
-        return HttpConnection.getSetDataWeb("http://192.168.0.104:8080/RESTfulExample/rest/ClienteService/cadastrar", "cadastrar", new Gson().toJson(cliente));
+        return HttpConnection.getSetDataWeb("http://ciopsapp.ddns.net:8090/RESTfulExample/rest/ClienteService/cadastrar", "cadastrar", new Gson().toJson(cliente));
     }
 
     ;

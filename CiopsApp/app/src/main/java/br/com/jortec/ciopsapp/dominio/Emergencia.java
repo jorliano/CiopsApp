@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 public class Emergencia {
     private int id;
     private String tipo;
-    private String logintude;
+    private String longitude;
     private String latitude;
     private byte[] foto;
     private byte[] foto2;
@@ -23,14 +23,6 @@ public class Emergencia {
         this.tipo = tipo;
     }
 
-    public String getLogintude() {
-        return logintude;
-    }
-
-    public void setLogintude(String logintude) {
-        this.logintude = logintude;
-    }
-
     public String getLatitude() {
         return latitude;
     }
@@ -38,6 +30,7 @@ public class Emergencia {
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
+
 
     public byte[] getFoto() {
         return foto;
@@ -71,6 +64,14 @@ public class Emergencia {
 
     public void setFoto3(byte[] foto3) {
         this.foto3 = foto3;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }
 

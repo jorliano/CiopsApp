@@ -52,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                      c.setSenha(edtSenha.getText().toString());
 
                     // Chama a ação que se comunica com o webservice
-                    // new  HttpAsyncPOST().execute();
-                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                     new  HttpAsyncPOST().execute();
+                     //startActivity(new Intent(LoginActivity.this,MainActivity.class));
                      
                  } else {
                      Toast.makeText(v.getContext(), "Verifique sua conexão com a internet", Toast.LENGTH_LONG).show();
@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private String post(){
 
-        return  HttpConnection.getSetDataWeb("http://192.168.0.104:8080/RESTfulExample/rest/ClienteService", "logar", new Gson().toJson(c));
+        return  HttpConnection.getSetDataWeb("http://ciopsapp.ddns.net:8090/RESTfulExample/rest/ClienteService", "logar", new Gson().toJson(c));
     };
 
     private void imprimirMensagem(String mensagem) {

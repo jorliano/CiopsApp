@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String post() {
-        return HttpConnection.getSetDataWeb("http://192.168.0.104:8080/RESTfulExample/rest/ClienteService/enviar", "enviar", new Gson().toJson(em));
+        return HttpConnection.getSetDataWeb("http://ciopsapp.ddns.net:8090/RESTfulExample/rest/ClienteService/enviar", "enviar", new Gson().toJson(em));
     }
 
     private void imprimirMensagem(String mensagem) {
@@ -235,7 +235,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Minha Localização"));
+       // mMap.addMarker(new MarkerOptions().position(latLng).title("Minha Localização"));
+        mMap.setMyLocationEnabled(true);
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         float zoomLevel = 16.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
@@ -259,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enviarDadosSever() {
-        RadioGroup rb = new RadioGroup(this);
+        final RadioGroup rb = new RadioGroup(this);
         RadioButton rb1 = new RadioButton(this);
         rb1.setText("Ambulancia");
 
@@ -282,15 +283,14 @@ public class MainActivity extends AppCompatActivity {
         materialDialog.setPositiveButton("OK", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imprimirMensagem("Os dados foram enviados ");
-                /*  tipo = "Ambulancia";
+                  tipo = "Ambulancia";
                     int checked = rb.getCheckedRadioButtonId();
                     if(checked == 2)
                         tipo = "Bombeiro";
                     if(checked == 3)
-                        tipo = "Policia";*/
+                        tipo = "Policia";
 
-              /*  if (VerificaConecao.verifyConnection(MainActivity.this)) {
+                if (VerificaConecao.verifyConnection(MainActivity.this)) {
                     Bundle b = getIntent().getExtras();
                     em = new Emergencia();
 
@@ -316,9 +316,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                     em.setLatitude(latitudeStr);
-                    em.setLogintude(longitudeStr);
-                    em.setTipo(rb.getCheckedRadioButtonId());
-
+                    em.setLongitude(longitudeStr);
+                    em.setTipo(tipo);
 
                     new HttpAsyncPOST().execute();
                     listaBitmap = new ArrayList<Bitmap>();
@@ -327,8 +326,6 @@ public class MainActivity extends AppCompatActivity {
                     imprimirMensagem("Verifique sua conexão com a internet");
 
                 }
-            }*/
-                materialDialog.dismiss();
             }
         });
 
